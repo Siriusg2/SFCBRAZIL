@@ -1,9 +1,7 @@
+const { readCounter } = require("./teste1");
 
+module.exports = function (req, res) {
+  const { name } = req.query;
 
-module.exports = function(req, res){
-    
-    var name =  req.query.name;
-
-    res.send("Usuário " +  name  + "  foi lido 0 vezes.");
-
+  return res.send(`Usuário ${name}  foi lido ${readCounter[name]} vezes.`);
 };
