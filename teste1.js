@@ -1,6 +1,6 @@
 const data = require("./fakeData");
-// Variable to carry the reading counter
-const readCounter = {};
+const readCounter = require("./readCounter");
+
 const getUser = (req, res, next) => {
   let { name } = req.query;
 
