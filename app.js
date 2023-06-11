@@ -10,7 +10,10 @@ const teste4 = require("./teste4");
 const teste5 = require("./teste5");
 
 app.set("view engine", "jade");
+
+//use morgan middleware like dev dependence to watch the each request on console
 app.use(morgan("dev"));
+
 app.use(express.json());
 
 //decodified each query string to utf-8 encoding
