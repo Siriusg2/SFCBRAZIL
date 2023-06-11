@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const morgan = require("morgan");
-
+const checkPermissions = require("./teste6");
 const teste1 = require("./teste1");
 const teste2 = require("./teste2");
 const teste3 = require("./teste3");
@@ -15,7 +15,7 @@ app.set("view engine", "jade");
 app.use(morgan("dev"));
 
 app.use(express.json());
-
+app.use((req, res, next) => checkPermissions(req, res, next));
 //decodified each query string to utf-8 encoding
 app.use((req, res, next) => {
   for (const key in req.query) {

@@ -1,4 +1,4 @@
-const { readCounter } = require("./teste1");
+const readCounter = require("./readCounter");
 
 module.exports = function (req, res) {
   const { name } = req.query;
