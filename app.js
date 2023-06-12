@@ -15,7 +15,7 @@ app.set("view engine", "jade");
 app.use(morgan("dev"));
 
 app.use(express.json());
-app.use((req, res, next) => checkPermissions(req, res, next));
+
 //decodified each query string to utf-8 encoding
 app.use((req, res, next) => {
   for (const key in req.query) {
@@ -41,8 +41,8 @@ app.get("/", function (req, res) {
 app.get("/user", teste1.getUser);
 app.get("/users", teste1.getUsers);
 app.post("/users", teste2);
-app.delete("/users", teste3);
-app.put("/users", teste4);
+app.delete("/users", checkPermissions, teste3);
+app.put("/users", checkPermissions, teste4);
 app.get("/users/access", teste5);
 
 const port = 3000;
